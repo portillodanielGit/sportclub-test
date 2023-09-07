@@ -1,0 +1,8 @@
+.sportclub-button {
+	background: #202128;
+	color: white;
+}
+.sportclub-button:hover {
+	background: #ffd300;
+	color: black;
+}
