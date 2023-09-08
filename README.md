@@ -29,7 +29,7 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-## Api
+## API
 
 You can access the api with this url http://127.0.0.1:8000/api/v1/miembros/
 To acces the swagger use the following url http://127.0.0.1:8000/api/docs/
