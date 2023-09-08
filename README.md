@@ -73,7 +73,7 @@ To run this server execute the following commands
 ```bash
 cd backend
 docker build -t <ImageName> .
-docker run -d -p8080:8000 <ImageName>
+docker run -d -p8000:8000 <ImageName>
 ```
 
 ## Description
