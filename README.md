@@ -82,6 +82,7 @@ With these commands you can run the container on port 8000
 
 ## Docker file explanation
 
+```bash
 FROM python:3.8-slim #This is the docker image for node avaliable in dockerhub
 
 RUN pip install --upgrade pip #Installing pip(the package installer)
@@ -93,6 +94,7 @@ COPY . /app #Copy everything
 WORKDIR /app #Setting /app as work directory
 
 ENTRYPOINT ["python", "manage.py", "runserver" , "0.0.0.0:8000" , "--noreload"] #Running the django server in the port 8000
+```
 
 ---
 
@@ -114,6 +116,7 @@ With these commands you can run the frontend container on port 5173
 
 ## Docker file explanation
 
+```bash
 FROM node:18-alpine # This is the docker image for node avaliable in dockerhub
 
 WORKDIR /react-vite-app # Setting /react-vite-app as work directory
@@ -127,5 +130,6 @@ RUN npm install --silent # Running this tommand to install all dependencies
 COPY . ./ # Copy everything else including the vite.config.js(important)
 
 CMD ["npm", "run", "dev"] # Running this command to execute the app
+```
 
 ---
