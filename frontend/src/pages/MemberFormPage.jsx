@@ -11,7 +11,7 @@ import {MemberContext} from '../context/MemberContext';
  * @function MemberFormPage
  */
 export const MemberFormPage = () => {
-	const {register, handleSubmit, formState, setValue} = useForm();
+	const {register, handleSubmit, formState, setValue} = useForm({shouldUseNativeValidation: true});
 	const {resetFilter} = useContext(MemberContext);
 	const navigate = useNavigate();
 	const params = useParams();
@@ -60,29 +60,31 @@ export const MemberFormPage = () => {
 				/>
 				<ErrorMessage errors={formState.errors} name="nombre" />
 				<input
-					className=" p-3 rounded-lg block w-full mb-3"
+					className=" p-3 rounded-lg block w-full mb-3 text-black"
 					type="text"
 					placeholder="Apellido"
 					{...register('apellido', {required: 'Este campo es requerido'})}
 				/>
 				<ErrorMessage errors={formState.errors} name="apellido" />
 				<input
-					className=" p-3 rounded-lg block w-full mb-3"
-					type="number"
+					pattern="[0-9]{9}|[0-9]{8}"
+					title="Dni invalido"
+					className=" p-3 rounded-lg block w-full mb-3 text-black"
+					type="text"
 					placeholder="DNI"
 					{...register('dni', {required: 'Este campo es requerido'})}
 				/>
 				<ErrorMessage errors={formState.errors} name="dni" />
 				<input
-					className=" p-3 rounded-lg block w-full mb-3"
+					className=" p-3 rounded-lg block w-full mb-3 text-black"
 					type="date"
 					placeholder="Fecha de nacimiento"
 					{...register('fecha_de_nacimiento', {required: 'Este campo es requerido'})}
 				/>
 				<ErrorMessage errors={formState.errors} name="fecha_de_nacimiento" />
-				<div className=" p-3 rounded-lg block w-full mb-3 text-white">
+				<div className=" p-3 rounded-lg block w-full mb-3">
 					Es usted de Gran Buenos Aires?
-					<input className="ml-4" type="checkbox" {...register('gba')} />
+					<input className="ml-4 text-black" type="checkbox" {...register('gba')} />
 				</div>
 				<button className="sportclub-button rounded-lg block w-full mt-3">Guardar</button>
 			</form>

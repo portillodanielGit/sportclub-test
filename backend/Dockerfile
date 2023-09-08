@@ -8,5 +8,4 @@ RUN pip install -r requirements.txt
 COPY . /app
 WORKDIR /app
 
-COPY ./entrypoint.sh .
-ENTRYPOINT ["sh", "/app/entrypoint.sh"]
+ENTRYPOINT ["python", "manage.py", "runserver" , "0.0.0.0:8000" , "--noreload"]
